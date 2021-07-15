@@ -8,6 +8,7 @@ public class Menu {
     public static void verMenu(){
         int opcion;
         Scanner sc = new Scanner(System.in);
+        String texto = "";
         do{
             System.out.println("\n    /)/)\n" +
                     "   ( ..\\     \n" +
@@ -24,7 +25,7 @@ public class Menu {
             switch (opcion){
                 case 1:
                     // TODO: Implementar la lógica para mostrar los productos definidos en el inventario
-                    verProductos();
+                    verProductos(sc);
                     break;
                 case 2:
                     break;
@@ -39,8 +40,16 @@ public class Menu {
         }while (opcion != 0);
     }
 
-    // TODO: Completar método
-    private static void verProductos(){
-        Inventario.getInventario();
+
+    private static void verProductos(Scanner sc){
+        System.out.println("\n---- Productos ----");
+        System.out.println(Inventario.getInventario());
+
+        System.out.print("Digite el número de uno de los productos, o digite cero para volver: ");
+        int option = sc.nextInt();
+
+        if (option != 0){
+            System.out.println(Inventario.getDetalleProducto(option));
+        }
     }
 }

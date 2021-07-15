@@ -42,4 +42,17 @@ public class Juguete extends Producto {
 
 
     //
+
+
+    @Override
+    public String toString() {
+        return "Juguete{" +
+                "rangoEdad='" + rangoEdad + '\'' +
+                ", tipo='" + tipo + '\'' +
+                ", numeroPiezas=" + numeroPiezas +
+                ", precio=" + precio +
+                ", marca='" + marca + '\'' +
+                ", cantidad=" + cantidad +
+                '}';
+    }
 }

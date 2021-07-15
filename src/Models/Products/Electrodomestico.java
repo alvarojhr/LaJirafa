@@ -41,4 +41,17 @@ public class Electrodomestico extends Producto {
     }
 
     //
+
+
+    @Override
+    public String toString() {
+        return "Electrodomestico{" +
+                "consumo=" + consumo +
+                ", tamanoH=" + tamanoH +
+                ", tamanoV=" + tamanoV +
+                ", precio=" + precio +
+                ", marca='" + marca + '\'' +
+                ", cantidad=" + cantidad +
+                '}';
+    }
 }

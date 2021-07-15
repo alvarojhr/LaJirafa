@@ -48,18 +48,16 @@ public class Nevera extends Electrodomestico {
         this.tipoNevera = tipoNevera;
     }
 
-    public int operacion1(){
-
-        return 0;
-    }
-
-    public void  operacion2(){
-
-
-    }
-
-    public void  operacion3(){
-
-
+    @Override
+    public String toString() {
+        return "Nevera{" +
+                "capacidadLts=" + capacidadLts +
+                ", noFrost=" + noFrost +
+                ", puertas=" + puertas +
+                ", tipoNevera='" + tipoNevera + '\'' +
+                ", precio=" + precio +
+                ", marca='" + marca + '\'' +
+                ", cantidad=" + cantidad +
+                '}';
     }
 }

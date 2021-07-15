@@ -12,18 +12,16 @@ public class Inventario {
         return productos;
     }
 
-    public static void getInventario(){
+    public static String getInventario(){
+        String result = "";
 
+        int cont = 1;
         for (Producto producto: productos) {
-            System.out.println("Nombre: "+producto.getNombre()+", Cantidad: "+producto.getCantidad()+", Marca: "+producto.getMarca()+", Precio: "+producto.getPrecio());
+            result += cont+". "+producto.infoBasica() + "\n";
+            cont++;
         }
-        
-//        for (int i =0; i<Inventario.getProductos().size(); i++) {
-//            System.out.println(Inventario.getProductos().get(i).getNombre());
-//            System.out.println(Inventario.getProductos().get(i).getCantidad());
-//            System.out.println(Inventario.getProductos().get(i).getMarca());
-//            System.out.println(Inventario.getProductos().get(i).getPrecio());
-//        }
+
+        return result;
     }
 
     public static void setProductos() {
@@ -35,7 +33,14 @@ public class Inventario {
         productos.add(new Videojuego("F1 2021",estadoActivo,1500000,"Apple",8,"Deportes",true,"E",true,"Windows OS/Android"));
         productos.add(new Juguete("Robot de baterias",estadoActivo,500000,"FisherPrice",5,"3 - 8","Robot",8));
         productos.add (new Juguete("Parqués",estadoActivo,8000, "Ronda", 30, "8+", "Juego de Mesa", 19));
+        productos.add (new Juguete("Tio Rico", estadoActivo, 30000, "Ronda", 25, "10+", "Juego de Mesa", 50));
+        productos.add (new ArticuloAseo("Clorox", estadoActivo, 12000, "Ajax", 20, 1, "Litro"));
+        productos.add (new ArticuloAseo("Ariel Liquido", estadoActivo, 25000.0, "Ariel", 25, 2.5f, "Litro"));
 
         Inventario.productos = productos;
+    }
+
+    public static String getDetalleProducto(int option) {
+        return productos.get(option-1).toString();
     }
 }

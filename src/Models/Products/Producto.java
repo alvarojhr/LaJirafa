@@ -38,4 +38,19 @@ public class Producto extends Base {
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
+
+    public void vender(){}
+
+    @Override
+    public String toString() {
+        return "Producto{" +
+                "precio=" + precio +
+                ", marca='" + marca + '\'' +
+                ", cantidad=" + cantidad +
+                '}';
+    }
+
+    public String infoBasica(){
+        return getNombre()+" - "+marca+" - "+"$"+precio;
+    }
 }

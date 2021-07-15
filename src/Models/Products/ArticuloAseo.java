@@ -3,23 +3,23 @@ package Models.Products;
 import Models.Estado;
 
 public class ArticuloAseo extends Producto {
-    private float peso;
+    private float medida;
     private String unidadMedida;
 
-    public ArticuloAseo(String nombre, Estado estado, double precio, String marca, int cantidad, float peso, String unidadMedida) {
+    public ArticuloAseo(String nombre, Estado estado, double precio, String marca, int cantidad, float medida, String unidadMedida) {
         super(nombre, estado, precio, marca, cantidad);
-        this.peso = peso;
+        this.medida = medida;
         this.unidadMedida = unidadMedida;
     }
 
     //getter and Setter
 
-    public float getPeso() {
-        return peso;
+    public float getMedida() {
+        return medida;
     }
 
-    public void setPeso(float peso) {
-        this.peso = peso;
+    public void setMedida(float medida) {
+        this.medida = medida;
     }
 
     public String getUnidadMedida() {
@@ -31,4 +31,16 @@ public class ArticuloAseo extends Producto {
     }
 
     //
+
+
+    @Override
+    public String toString() {
+        return "ArticuloAseo{" +
+                "medida=" + medida +
+                ", unidadMedida='" + unidadMedida + '\'' +
+                ", precio=" + precio +
+                ", marca='" + marca + '\'' +
+                ", cantidad=" + cantidad +
+                '}';
+    }
 }

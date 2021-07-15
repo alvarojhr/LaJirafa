@@ -47,4 +47,17 @@ public class Estufa extends Electrodomestico{
     public void setTipoEncendido(String tipoEncendido) {
         this.tipoEncendido = tipoEncendido;
     }
+
+    @Override
+    public String toString() {
+        return "Estufa{" +
+                "tipoAloimentacion='" + tipoAloimentacion + '\'' +
+                ", tieneHorno=" + tieneHorno +
+                ", puestos=" + puestos +
+                ", tipoEncendido='" + tipoEncendido + '\'' +
+                ", precio=" + precio +
+                ", marca='" + marca + '\'' +
+                ", cantidad=" + cantidad +
+                '}';
+    }
 }

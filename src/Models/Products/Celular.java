@@ -60,5 +60,17 @@ public class Celular extends Producto {
         this.unidadRam = unidadRam;
     }
 
-    //
+    @Override
+    public String toString() {
+        return "Celular{" +
+                "modelo='" + modelo + '\'' +
+                ", rom=" + rom +
+                ", unidadRom='" + unidadRom + '\'' +
+                ", ram=" + ram +
+                ", unidadRam='" + unidadRam + '\'' +
+                ", precio=" + precio +
+                ", marca='" + marca + '\'' +
+                ", cantidad=" + cantidad +
+                '}';
+    }
 }

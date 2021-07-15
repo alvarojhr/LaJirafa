@@ -62,4 +62,21 @@ public class Videojuego extends Producto{
     }
 
     //
+
+
+    @Override
+    public String toString() {
+        return "Videojuego{" +
+                "precio=" + precio +
+                ", marca='" + marca + '\'' +
+                ", cantidad=" + cantidad +
+                ", genero='" + genero + '\'' +
+                ", isOnline=" + isOnline +
+                ", clasificacion='" + clasificacion + '\'' +
+                ", isMultijugador=" + isMultijugador +
+                ", plataforma='" + plataforma + '\'' +
+                '}';
+    }
+
+
 }
