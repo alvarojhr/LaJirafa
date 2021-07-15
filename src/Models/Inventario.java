@@ -4,7 +4,7 @@ import Models.Products.*;
 
 import java.util.ArrayList;
 
-public class Inventario {
+public abstract class Inventario {
 
     private static ArrayList<Producto> productos;
 
@@ -40,7 +40,11 @@ public class Inventario {
         Inventario.productos = productos;
     }
 
-    public static String getDetalleProducto(int option) {
-        return productos.get(option-1).toString();
+    public static Producto getDetalleProducto(int option) {
+        return productos.get(option-1);
     }
-}
+
+    public static void descontarProducto(int option, int cant) {
+        Producto productoDescontar = productos.get(option-1);
+        productoDescontar.setCantidad(productoDescontar.getCantidad()-cant);
+    }}

@@ -1,14 +1,18 @@
+import Models.Factura;
 import Models.Inventario;
+import Models.Products.Producto;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Locale;
 import java.util.Scanner;
 
-public class Menu {
+public abstract class Menu {
     public static void verMenu(){
         int opcion;
         Scanner sc = new Scanner(System.in);
         String texto = "";
+        Factura factura = new Factura();
         do{
             System.out.println("\n    /)/)\n" +
                     "   ( ..\\     \n" +
@@ -24,8 +28,7 @@ public class Menu {
 
             switch (opcion){
                 case 1:
-                    // TODO: Implementar la lógica para mostrar los productos definidos en el inventario
-                    verProductos(sc);
+                    verProductos(sc,factura);
                     break;
                 case 2:
                     break;
@@ -41,7 +44,7 @@ public class Menu {
     }
 
 
-    private static void verProductos(Scanner sc){
+    private static void verProductos(Scanner sc, Factura factura){
         System.out.println("\n---- Productos ----");
         System.out.println(Inventario.getInventario());
 
@@ -50,6 +53,34 @@ public class Menu {
 
         if (option != 0){
             System.out.println(Inventario.getDetalleProducto(option));
+            int cant = agregarProducto(sc);
+            if(cant > 0){
+                Producto productoAgregar = Inventario.getDetalleProducto(option);
+                Producto productoAgregarClone = new Producto(productoAgregar.getNombre(),productoAgregar.getEstado(), productoAgregar.getPrecio(),productoAgregar.getMarca(),cant);
+                factura.agregarProductoCarrito(productoAgregarClone);
+                Inventario.descontarProducto(option,cant);
+            }
         }
+    }
+
+    private static int agregarProducto(Scanner sc){
+        int cantProductos = 0;
+        String opcion;
+        do{
+            System.out.print("¿Desea agregar este producto al carrito? (S/N): ");
+            opcion= sc.next().toLowerCase(Locale.ROOT);
+            switch (opcion){
+                case "s":
+                    System.out.print("¿Cuantas unidades desea? ");
+                    cantProductos = sc.nextInt();
+                    break;
+                case "n":
+                    break;
+                default:
+                    System.out.println("Por favor digite una opción válida.");
+            }
+        }while (!opcion.equals("s") && !opcion.equals("n"));
+
+        return cantProductos;
     }
 }

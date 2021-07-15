@@ -8,13 +8,16 @@ import java.util.Date;
 public class Factura extends Base{
     private Cliente cliente;
     private Date fecha;
-    private ArrayList<Producto> productos;
+    private ArrayList<Producto> productos = new ArrayList<>();
 
     public Factura(String nombre, Estado estado, Cliente cliente, Date fecha, ArrayList<Producto> productos) {
         super(nombre, estado);
         this.cliente = cliente;
         this.fecha = fecha;
         this.productos = productos;
+    }
+
+    public Factura() {
     }
 
     //setter and getter
@@ -44,5 +47,9 @@ public class Factura extends Base{
     }
 
     //
+
+    public void agregarProductoCarrito(Producto producto) {
+        this.productos.add(producto);
+    }
 
 }

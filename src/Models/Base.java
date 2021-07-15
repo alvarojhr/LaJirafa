@@ -1,6 +1,6 @@
 package Models;
 
-public class Base {
+public abstract class Base {
     private int id;
     private String nombre;
     private Estado estado;
@@ -8,6 +8,9 @@ public class Base {
     public Base(String nombre, Estado estado) {
         this.nombre = nombre;
         this.estado = estado;
+    }
+
+    public Base() {
     }
 
     //getter and setter
